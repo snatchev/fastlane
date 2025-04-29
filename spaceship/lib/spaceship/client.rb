@@ -255,6 +255,10 @@ module Spaceship
           severity = format('%-5.5s', severity)
           "#{severity} [#{datetime.strftime('%H:%M:%S')}]: #{msg}\n"
         end
+
+        if ENV["SPACESHIP_LOG_LEVEL"]
+          @logger.level = ENV["SPACESHIP_LOG_LEVEL"]
+        end
       end
 
       @logger
